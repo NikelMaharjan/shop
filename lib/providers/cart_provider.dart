@@ -3,9 +3,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:simple_shop/main.dart';
 import 'package:simple_shop/models/cart_item.dart';
 import 'package:simple_shop/models/products.dart';
+import 'package:simple_shop/views/main.dart';
 
 
 

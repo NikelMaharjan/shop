@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:simple_shop/services/auth_service.dart';
-import '../main.dart';
+import 'package:simple_shop/services/auth_services.dart';
 import '../models/auth_state.dart';
 import '../models/user.dart';
+import '../views/main.dart';
 
 
 

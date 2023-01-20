@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:simple_shop/colors.dart';
+import 'package:simple_shop/constants/colors.dart';
 import 'package:simple_shop/common/show_snack.dart';
 import 'package:simple_shop/models/products.dart';
 import 'package:simple_shop/providers/common_provider.dart';

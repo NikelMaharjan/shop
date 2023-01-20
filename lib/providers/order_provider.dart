@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:simple_shop/api.dart';
+import 'package:simple_shop/constants/api.dart';
 import 'package:simple_shop/exceptions/api_exceptions.dart';
 import '../models/cart_item.dart';
 import '../models/order.dart';

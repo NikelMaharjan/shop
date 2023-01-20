@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:simple_shop/colors.dart';
+import 'package:simple_shop/constants/colors.dart';
 import 'package:simple_shop/common/show_snack.dart';
 import 'package:simple_shop/models/products.dart';
 import 'package:simple_shop/providers/cart_provider.dart';
@@ -24,7 +24,7 @@ class DetailPage extends StatelessWidget {
 
                 child: Container(
                   decoration: BoxDecoration(
-                     color: white,
+                     color: lightWhite,
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
                   ),
                   margin: EdgeInsets.only(top: 220),

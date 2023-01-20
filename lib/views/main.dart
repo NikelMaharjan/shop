@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:simple_shop/colors.dart';
+import 'package:simple_shop/constants/colors.dart';
 import 'package:simple_shop/models/cart_item.dart';
 import 'package:simple_shop/models/user.dart';
 import 'package:simple_shop/views/status_page.dart';
@@ -27,10 +27,10 @@ void main() async {
   final cartBox = await Hive.openBox<CartItem>('carts');
 
   runApp(ProviderScope(
-    overrides: [
-      boxA.overrideWithValue(userBox.values.toList().cast<User>()),  //when app runs, boxA will get values of userBox (added when logged in)
-      boxB.overrideWithValue(cartBox.values.toList().cast<CartItem>())
-    ],
+      overrides: [
+        boxA.overrideWithValue(userBox.values.toList().cast<User>()),  //when app runs, boxA will get values of userBox (added when logged in)
+        boxB.overrideWithValue(cartBox.values.toList().cast<CartItem>())
+      ],
       child: const Home()
   )
   );
@@ -43,18 +43,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(
-          textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
-          scaffoldBackgroundColor: white,
-          inputDecorationTheme: const InputDecorationTheme(
-          floatingLabelStyle: TextStyle(color: blue,
-          )
+        theme: ThemeData(
+            textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
+            scaffoldBackgroundColor: lightWhite,
+            inputDecorationTheme: const InputDecorationTheme(
+                floatingLabelStyle: TextStyle(color: blue,
+                )
+            ),
+            appBarTheme: const AppBarTheme(
+              color:  blue,
+            )
         ),
-        appBarTheme: const AppBarTheme(
-          color:  blue,
-        )
-      ),
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: StatusPage()
     );
   }

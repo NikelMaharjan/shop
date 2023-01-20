@@ -1,6 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:simple_shop/colors.dart';
+import 'package:simple_shop/constants/colors.dart';
 import 'package:simple_shop/providers/common_provider.dart';
 import 'package:simple_shop/views/dashboards/create_page.dart';
 import 'package:simple_shop/views/dashboards/crud_page.dart';

@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:simple_shop/api.dart';
+import 'package:simple_shop/constants/api.dart';
 import 'package:simple_shop/exceptions/api_exceptions.dart';
 import 'package:simple_shop/models/products.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
@@ -19,10 +19,10 @@ class CrudService {
 
   static Future<Either<String, bool>> addProduct(
       {required String title,
-      required String detail,
-      required int price,
-      required XFile image,
-      required String token}) async {
+        required String detail,
+        required int price,
+        required XFile image,
+        required String token}) async {
     try {
       try {
         CloudinaryResponse response = await cloudinary.uploadFile(CloudinaryFile.fromFile(image.path, resourceType: CloudinaryResourceType.Image));
@@ -49,12 +49,12 @@ class CrudService {
 
   static Future<Either<String, bool>> updateProduct(
       {required String title,
-      required String detail,
-      XFile? image,
-      String? imageId,
-      required String id,
-      required int price,
-      required String token}) async {
+        required String detail,
+        XFile? image,
+        String? imageId,
+        required String id,
+        required int price,
+        required String token}) async {
     try {
       if (image == null) {
         await dio.patch('${Api.updateProduct}/$id',
@@ -90,8 +90,8 @@ class CrudService {
 
   static Future<Either<String, bool>> removeProduct(
       {required String imageId,
-      required String id,
-      required String token}) async {
+        required String id,
+        required String token}) async {
     try {
       await dio.delete('${Api.removeProduct}/$id',
           data: {

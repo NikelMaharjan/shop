@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +7,6 @@ import 'package:simple_shop/services/crud_services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:simple_shop/views/dashboards/cart_page.dart';
-
 import 'detail_page.dart';
 
 class HomePage extends ConsumerWidget {
@@ -23,17 +20,17 @@ class HomePage extends ConsumerWidget {
     final w = MediaQuery.of(context).size.width;
     final productDb = ref.watch(productData);
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        actions: [
-          IconButton(onPressed: (){
+        appBar: AppBar(
+            elevation: 0,
+            actions: [
+              IconButton(onPressed: (){
 
-            Get.to(const CartPage());
+                Get.to(const CartPage());
 
-            }, icon: const Icon(CupertinoIcons.shopping_cart))
-        ],
-        title: const Text("Products", style: TextStyle(color: Colors.white),)
-      ),
+              }, icon: const Icon(CupertinoIcons.shopping_cart))
+            ],
+            title: const Text("Products", style: TextStyle(color: Colors.white),)
+        ),
         body:  Container(
           child: productDb.when(
               data: (data){
