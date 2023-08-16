@@ -45,6 +45,7 @@ class AuthProvider extends StateNotifier<AuthState> {
 
 
 
+
   void userLogOut() async {
     Hive.box<User>('user').clear();
     state = state.copyWith(isLoad: false, err: '', user: []);

@@ -21,7 +21,6 @@ class AuthService {
         'full_name': username
       });
 
-
       return Right(User.fromJson(response.data));
     } on DioError  catch (err) {
       return Left(DioException.fromDioError(err).errorMessage);
