@@ -1,11 +1,9 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_shop/constants/colors.dart';
 import 'package:simple_shop/common/show_snack.dart';
-import 'package:simple_shop/providers/auth_provider.dart';
 import 'package:simple_shop/providers/crud_provider.dart';
 import 'package:simple_shop/validation.dart';
 
@@ -31,7 +29,6 @@ class CreatePage extends ConsumerWidget with Validation {
     final deviceheight = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     final devicewidth = MediaQuery.of(context).size.width;
 
-;
     final image = ref.watch(imageProvider);
     final crud = ref.watch(crudProvider);
 
@@ -88,14 +85,14 @@ class CreatePage extends ConsumerWidget with Validation {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Container(
+                              SizedBox(
                                 //  color: Colors.red,
                                 height:  deviceheight * 0.55  ,
                                 child: Form(
                                   key: _form,
                                   child: Column(
                                     children: [
-                                      Padding(
+                                      const Padding(
                                         padding: EdgeInsets.only(top: 40.0),
                                         child: Text('Create Page',
                                           style: TextStyle(
@@ -129,7 +126,7 @@ class CreatePage extends ConsumerWidget with Validation {
                                           suffixIcon: Icons.clear,
                                       ),
 
-                                       SizedBox(height: 10,),
+                                       const SizedBox(height: 10,),
 
 
                                        Expanded(
@@ -150,23 +147,23 @@ class CreatePage extends ConsumerWidget with Validation {
                                               onPressed: (){
                                                 showDialog(context: context, builder: (context){
                                                   return AlertDialog(
-                                                    title: Text('choose option'),
+                                                    title: const Text('choose option'),
                                                     actions: [
                                                       TextButton(
                                                           onPressed: (){
                                                             Navigator.of(context).pop();
                                                             ref.read(imageProvider.notifier).pickAnImage(true);
-                                                          }, child: Text('camera')),
+                                                          }, child: const Text('camera')),
                                                       TextButton(
                                                           onPressed: (){
                                                             Navigator.of(context).pop();
                                                             ref.read(imageProvider.notifier).pickAnImage(false);
-                                                          }, child: Text('gallery')),
+                                                          }, child: const Text('gallery')),
                                                     ],
                                                   );
                                                 });
                                               },
-                                              child: image != null ? Image.file(File(image.path)) : Center(child: Text("Select an Image", style: TextStyle(color: Colors.grey),))),
+                                              child: image != null ? Image.file(File(image.path)) : const Center(child: Text("Select an Image", style: TextStyle(color: Colors.grey),))),
                                         ),
                                       ),
                                     ],
@@ -196,11 +193,11 @@ class CreatePage extends ConsumerWidget with Validation {
                                               showDialog(context: context, builder: (context){
 
                                                 return AlertDialog(
-                                                  content: Text("Image is required"),
+                                                  content: const Text("Image is required"),
                                                   actions: [
                                                     TextButton(onPressed: (){
                                                       Navigator.pop(context);
-                                                    }, child: Text("Close"))
+                                                    }, child: const Text("Close"))
                                                   ],
                                                 );
 
@@ -228,7 +225,7 @@ class CreatePage extends ConsumerWidget with Validation {
 
 
                                         },
-                                      child: crud.isLoad ? CircularProgressIndicator() : const Text("Submit")))
+                                      child: crud.isLoad ? const CircularProgressIndicator() : const Text("Submit")))
                             ],
                           )
                       ),

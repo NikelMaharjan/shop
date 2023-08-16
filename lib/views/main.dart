@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
             )
         ),
         debugShowCheckedModeBanner: false,
-        home: StatusPage()
+        home: const StatusPage()
     );
   }
 }

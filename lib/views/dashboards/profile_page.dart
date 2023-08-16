@@ -19,24 +19,24 @@ class ProfilePage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("Profile"),
+        title: const Text("Profile"),
       ),
       body: ListView(
         children: [
           ListTile(
-            leading: Icon(Icons.person),
+            leading: const Icon(Icons.person),
             title: Text(auth.user[0].username),
           ),
           ListTile(
-            leading: Icon(Icons.mail),
+            leading: const Icon(Icons.mail),
             title: Text(auth.user[0].email),
           ),
 
           ListTile(
-            leading: Icon(Icons.history),
-            title: Text("Order History"),
+            leading: const Icon(Icons.history),
+            title: const Text("Order History"),
             onTap: (){
-              Get.to(OrderHistory());
+              Get.to(const OrderHistory());
             },
           ),
           ListTile(
@@ -44,23 +44,23 @@ class ProfilePage extends ConsumerWidget {
               showDialog(context: context, builder: (context){
                 return AlertDialog(
                   elevation: 0,
-                  title: Text('Log Out'),
+                  title: const Text('Log Out'),
                   actions: [
                     TextButton(
                         onPressed: (){
                           ref.read(authProvider.notifier).userLogOut();
                           Navigator.of(context).pop();
-                        }, child: Text('Yes')),
+                        }, child: const Text('Yes')),
                     TextButton(
                         onPressed: (){
                           Navigator.of(context).pop();
-                        }, child: Text('No')),
+                        }, child: const Text('No')),
                   ],
                 );
               });
               },
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Logout'),
           ),
         ],
       ),

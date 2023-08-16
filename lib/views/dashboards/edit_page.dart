@@ -3,7 +3,6 @@
 
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_shop/constants/colors.dart';
@@ -110,14 +109,14 @@ class _EditPageState extends ConsumerState<EditPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Container(
+                              SizedBox(
                                 //  color: Colors.red,
                                 height: deviceheight * 0.55  ,
                                 child: Form(
                                   key: _form,
                                   child: Column(
                                     children: [
-                                      Padding(
+                                      const Padding(
                                         padding: EdgeInsets.only(top: 40.0),
                                         child: Text("Edit Post",
                                           style: TextStyle(
@@ -170,18 +169,18 @@ class _EditPageState extends ConsumerState<EditPage> {
                                               onPressed: (){
                                                 showDialog(context: context, builder: (context){
                                                   return AlertDialog(
-                                                    title: Text('choose option'),
+                                                    title: const Text('choose option'),
                                                     actions: [
                                                       TextButton(
                                                           onPressed: (){
                                                             Navigator.of(context).pop();
                                                             ref.read(imageProvider.notifier).pickAnImage(true);
-                                                          }, child: Text('camera')),
+                                                          }, child: const Text('camera')),
                                                       TextButton(
                                                           onPressed: (){
                                                             Navigator.of(context).pop();
                                                             ref.read(imageProvider.notifier).pickAnImage(false);
-                                                          }, child: Text('gallery')),
+                                                          }, child: const Text('gallery')),
                                                     ],
                                                   );
                                                 });
@@ -245,7 +244,7 @@ class _EditPageState extends ConsumerState<EditPage> {
 
 
                                       },
-                                      child: crud.isLoad ? CircularProgressIndicator() : const Text("Submit")))
+                                      child: crud.isLoad ? const CircularProgressIndicator() : const Text("Submit")))
                             ],
                           )
                       ),

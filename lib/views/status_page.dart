@@ -9,6 +9,8 @@ import 'auth/login_page.dart';
 
 
 class StatusPage extends ConsumerWidget {
+  const StatusPage({super.key});
+
 
   @override
   Widget build(BuildContext context, ref) {

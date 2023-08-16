@@ -76,7 +76,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text( 'Dont Have an account',
+                        const Text( 'Dont Have an account',
                           style: TextStyle(fontSize: 18),
                         ),
                         TextButton(
@@ -85,7 +85,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               Get.to(SignUpPage(), transition: Transition.leftToRight);
 
                             },
-                            child:  Text(
+                            child:  const Text(
                               "Sign Up" ,
                               style: TextStyle(fontSize: 18),
                             ))
@@ -113,14 +113,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Container(
+                              SizedBox(
                                 //  color: Colors.red,
                                 height:  deviceheight * 0.42,
                                 child: Form(
                                   key: _form,
                                   child: Column(
                                     children: [
-                                      Padding(
+                                      const Padding(
                                         padding: EdgeInsets.only(top: 60.0),
                                         child: Text('Login',
                                           style: TextStyle(
@@ -190,7 +190,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                                         },
 
-                                      child: auth.isLoad ? CircularProgressIndicator() : const Text("Submit")))
+                                      child: auth.isLoad ? const CircularProgressIndicator() : const Text("Submit")))
                             ],
                           )
                       ),

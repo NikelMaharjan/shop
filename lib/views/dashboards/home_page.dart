@@ -27,7 +27,7 @@ class HomePage extends ConsumerWidget {
 
                 Get.to(const CartPage());
 
-              }, icon: const Icon(CupertinoIcons.shopping_cart))
+               }, icon: const Icon(CupertinoIcons.shopping_cart))
             ],
             title: const Text("Products", style: TextStyle(color: Colors.white),)
         ),

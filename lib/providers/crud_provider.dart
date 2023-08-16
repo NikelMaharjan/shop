@@ -47,7 +47,7 @@ class CrudProvider extends StateNotifier<ProductState> {
     response.fold((l) {
       state = state.copyWith( isLoad: false, err: l);
     }, (r) {
-      ref.refresh(productData1);
+      ref.invalidate(productData1);
       state = state.copyWith(isLoad: false, err: '', isSuccess: r);
     });
   }
@@ -65,7 +65,7 @@ class CrudProvider extends StateNotifier<ProductState> {
     response.fold((l) {
       state = state.copyWith( isLoad: false, err: l);
     }, (r) {
-      ref.refresh(productData1);
+      ref.invalidate(productData1);
       state = state.copyWith(isLoad: false, err: '', isSuccess: r);
     });
   }

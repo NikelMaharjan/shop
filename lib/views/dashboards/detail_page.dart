@@ -10,7 +10,7 @@ import 'package:simple_shop/providers/cart_provider.dart';
 
 class DetailPage extends StatelessWidget {
   final Product product;
-  DetailPage(this.product);
+  const DetailPage(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,11 @@ class DetailPage extends StatelessWidget {
                color: blue,
 
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                      color: lightWhite,
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
                   ),
-                  margin: EdgeInsets.only(top: 220),
+                  margin: const EdgeInsets.only(top: 220),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 50, bottom: 20, right: 20, left: 20),
                     child: Column(
@@ -37,7 +37,7 @@ class DetailPage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                              children: [
-                              Text(product.product_name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+                              Text(product.product_name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                                 child: Text(product.product_detail),
@@ -51,7 +51,7 @@ class DetailPage extends StatelessWidget {
                             builder: (context, ref, child) {
                               return ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xff4252B5),
+                                  backgroundColor: const Color(0xff4252B5),
                                 ),
                                   onPressed: () {
                                     final response = ref.read(cartProvider.notifier).addToCart(product);
@@ -60,7 +60,7 @@ class DetailPage extends StatelessWidget {
                                     }else{
                                       SnackShow.showCommonSnack(context, response, label: "Go to Cart", isADD: true);
                                     }
-                                  }, child: Text('Add To Cart'));
+                                  }, child: const Text('Add To Cart'));
                             }
                         )
                       ],
@@ -70,13 +70,10 @@ class DetailPage extends StatelessWidget {
               ),
 
               Align(
-                alignment: Alignment(0.8, -0.9),
-                child: Container(
-
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: CachedNetworkImage(imageUrl: product.image, fit: BoxFit.cover, height: 220, width: 200,)),
-                ),
+                alignment: const Alignment(0.8, -0.9),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: CachedNetworkImage(imageUrl: product.image, fit: BoxFit.cover, height: 220, width: 200,)),
               )
 
 

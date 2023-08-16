@@ -81,9 +81,11 @@ class CartProvider extends StateNotifier<List<CartItem>>{
     cartItem.quantity = cartItem.quantity + 1;
     cartItem.save();
 
-    //to update realtime... check every cart in state. if  state cart is equal to cartItem , it will return/update cartItem otherwise cart
+    //to update realtime.check every cart in state. if state cart is same to cartItem, it will update that cartItem with new quantity
+    // for those not same, it will return/show same value (cart)
     state = [
       for(final cart in state) if(cart.id == cartItem.id) cartItem else cart
+     // for(final cart in state) cart.id == cartItem.id ? cartItem : cart
     ];
 
 

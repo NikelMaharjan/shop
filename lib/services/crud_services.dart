@@ -41,7 +41,7 @@ class CrudService {
         print(e.message);
         print(e.request);
       }
-      return Right(true);
+      return const Right(true);
     } on DioError catch (err) {
       return Left(DioException.fromDioError(err).errorMessage);
     }
@@ -82,7 +82,7 @@ class CrudService {
               HttpHeaders.authorizationHeader: 'Bearer $token',
             }));
       }
-      return Right(true);
+      return const Right(true);
     } on DioError catch (err) {
       return Left(DioException.fromDioError(err).errorMessage);
     }
@@ -100,7 +100,7 @@ class CrudService {
           options: Options(headers: {
             HttpHeaders.authorizationHeader: 'Bearer $token',
           }));
-      return Right(true);
+      return const Right(true);
     } on DioError catch (err) {
       return Left(DioException.fromDioError(err).errorMessage);
     }

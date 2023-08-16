@@ -20,46 +20,45 @@ class CartPage extends ConsumerWidget {
     final isLoad = ref.watch(loadingProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cart"),
+        title: const Text("Cart"),
         elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: cartData.isEmpty ?  Center(child: Text("Empty! Add Items to Cart", style: TextStyle(color: Colors.grey),),) :  Column(
+        child: cartData.isEmpty ?  const Center(child: Text("Empty! Add Items to Cart", style: TextStyle(color: Colors.grey),),) :  Column(
           children: [
             Expanded(
               child:   ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                   itemCount: cartData.length,
                   itemBuilder: (context, index) {
                     return Stack(
                       children: [
                         Card(
                           child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 6),
+                            padding: const EdgeInsets.symmetric(vertical: 6),
 
                             height: 120,
                             child: Row(
                               children: [
+                                Image.network(cartData[index].imageUrl, width: 160,),
                                 Container(
-                                    child: Image.network(cartData[index].imageUrl, width: 160,)),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 8),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(cartData[index].title, style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18 ),),
+                                      Text(cartData[index].title, style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 18 ),),
                                       Container(
-                                          margin: EdgeInsets.symmetric(vertical: 6),
-                                          child: Text('Rs.${cartData[index].price}', style: TextStyle(fontSize: 12),)),
+                                          margin: const EdgeInsets.symmetric(vertical: 6),
+                                          child: Text('Rs.${cartData[index].price}', style: const TextStyle(fontSize: 12),)),
                                       Row(
                                         children: [
                                           OutlinedButton(
                                               onPressed: () {
                                                 ref.read(cartProvider.notifier).singleAddtoCart(cartData[index]);
                                                 },
-                                              child: Icon(Icons.add, color: blue,)),
+                                              child: const Icon(Icons.add, color: blue,)),
                                           Padding(
                                             padding: const EdgeInsets.symmetric(horizontal: 20),
                                             child: Text('${cartData[index].quantity}'),
@@ -68,7 +67,7 @@ class CartPage extends ConsumerWidget {
                                               onPressed: () {
                                                 ref.read(cartProvider.notifier).singleRemoveCart(cartData[index]);
                                               },
-                                              child: Icon(Icons.remove, color: blue,))
+                                              child: const Icon(Icons.remove, color: blue,))
                                         ],
                                       )
                                     ],
@@ -83,7 +82,7 @@ class CartPage extends ConsumerWidget {
                           alignment: Alignment.topRight,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: IconButton(icon: Icon(Icons.clear, color: blue,), onPressed: (){
+                              child: IconButton(icon: const Icon(Icons.clear, color: blue,), onPressed: (){
                                 ref.read(cartProvider.notifier).Remove(cartData[index]);
                               },),
                             )),
@@ -95,10 +94,10 @@ class CartPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom: 10),
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text('Total'), Text('Rs. ${totalData}')],
+                    children: [const Text('Total'), Text('Rs. $totalData')],
                   ),
                 ),
                 ElevatedButton(
@@ -129,7 +128,7 @@ class CartPage extends ConsumerWidget {
 
 
                     },
-                    child: isLoad ? Text("Please wait") : Text('Check Out'))
+                    child: isLoad ? const Text("Please wait") : const Text('Check Out'))
               ],
             )
           ],

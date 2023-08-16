@@ -88,14 +88,14 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Container(
+                              SizedBox(
                                 //  color: Colors.red,
                                 height:  deviceheight * 0.49,
                                 child: Form(
                                   key: _form,
                                   child: Column(
                                     children: [
-                                      Padding(
+                                      const Padding(
                                         padding: EdgeInsets.only(top: 60.0),
                                         child: Text('SignUp',
                                           style: TextStyle(
@@ -173,7 +173,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
 
                                       },
 
-                                      child: auth.isLoad ? CircularProgressIndicator() : const Text("Submit")))
+                                      child: auth.isLoad ? const CircularProgressIndicator() : const Text("Submit")))
                             ],
                           )
                       ),
@@ -186,7 +186,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text( 'Already Have an account',
+                        const Text( 'Already Have an account',
                           style: TextStyle(fontSize: 18),
                         ),
                         TextButton(
@@ -197,7 +197,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
 
 
                             },
-                            child:  Text(
+                            child:  const Text(
                               "Login" ,
                               style: TextStyle(fontSize: 18),
                             ))

@@ -11,10 +11,10 @@ import 'package:simple_shop/views/dashboards/profile_page.dart';
 
 class DashBoardPage extends ConsumerWidget {
   final List<Widget> _pages = [
-    HomePage(),
+    const HomePage(),
     CreatePage(),
-    CrudPage(),
-    ProfilePage(),
+    const CrudPage(),
+    const ProfilePage(),
   ];
 
   @override

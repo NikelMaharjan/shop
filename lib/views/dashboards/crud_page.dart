@@ -2,7 +2,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_shop/providers/crud_provider.dart';
 import 'package:simple_shop/services/crud_services.dart';
@@ -24,14 +23,14 @@ class CrudPage extends ConsumerWidget {
     final productDb = ref.watch(productData1);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Customize"),
+        title: const Text("Customize"),
         elevation: 0,
       ),
       body: Container(
         child: productDb.when(
             data: (data){
               return ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                   itemCount: data.length,
                   itemBuilder: (context, index){
                     return Card(
@@ -40,20 +39,20 @@ class CrudPage extends ConsumerWidget {
                         child: ListTile(
                           leading:Card(child: CachedNetworkImage(imageUrl: data[index].image, width: 80)),
                           title: Text(data[index].product_name,),
-                          trailing: Container(
+                          trailing: SizedBox(
                             width: 100,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 IconButton(onPressed: (){
                                   Get.to(EditPage(data[index]), transition: Transition.leftToRight);
-                                }, icon: Icon(Icons.edit)),
+                                }, icon: const Icon(Icons.edit)),
                                 IconButton(onPressed: ()  {
 
                                   showDialog(context: context, builder: (context){
                                     return AlertDialog(
                                       elevation: 0,
-                                      title: Text('Delete'),
+                                      title: const Text('Delete'),
                                       actions: [
                                         TextButton(
                                             onPressed: () async{
@@ -61,17 +60,17 @@ class CrudPage extends ConsumerWidget {
 
                                               await ref.read(crudProvider.notifier).removeProduct(imageId: data[index].imageId, id: data[index].id);
 
-                                            }, child: Text('Yes')),
+                                            }, child: const Text('Yes')),
                                         TextButton(
                                             onPressed: (){
                                               Navigator.of(context).pop();
-                                            }, child: Text('No')),
+                                            }, child: const Text('No')),
                                       ],
                                     );
                                   });
 
 
-                                }, icon: Icon(Icons.delete)),
+                                }, icon: const Icon(Icons.delete)),
                               ],
                             ),
                           ),
@@ -82,7 +81,7 @@ class CrudPage extends ConsumerWidget {
               );
             },
             error: (err, stack) => Center(child: Text('$err')),
-            loading: () => Center(child: CircularProgressIndicator())
+            loading: () => const Center(child: CircularProgressIndicator())
         ),
       ),
     );

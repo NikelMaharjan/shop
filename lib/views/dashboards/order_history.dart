@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 
 
 class OrderHistory extends ConsumerWidget {
+  const OrderHistory({super.key});
+
 
 
   @override
@@ -19,13 +21,13 @@ class OrderHistory extends ConsumerWidget {
     final order = ref.watch(orderHistory(auth.user[0].id));
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order History"),
+        title: const Text("Order History"),
         elevation: 0,
       ),
         body:  order.when(
             data: (data){
-              return data.isEmpty ? Center(child: Text("No Orders"),) : ListView.builder(
-                physics: BouncingScrollPhysics(),
+              return data.isEmpty ? const Center(child: Text("No Orders"),) : ListView.builder(
+                physics: const BouncingScrollPhysics(),
                   itemCount:  data.length,
                   itemBuilder: (context, index){
 
@@ -44,11 +46,11 @@ class OrderHistory extends ConsumerWidget {
                                 children: [
                                   Card(child: Image.network(e.imageUrl, height: 200, width: 200,)),
                                   Container(
-                                    margin: EdgeInsets.only(left: 10),
+                                    margin: const EdgeInsets.only(left: 10),
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(e.title, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
+                                        Text(e.title, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
                                         Text('Quantity ${e.quantity}'),
                                         Text('price: Rs.${e.price}'),
                                       ],
@@ -61,7 +63,7 @@ class OrderHistory extends ConsumerWidget {
                                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                                 child: Row(
                                   children: [
-                                    Text('Total ', style: TextStyle(fontWeight: FontWeight.w600),),
+                                    const Text('Total ', style: TextStyle(fontWeight: FontWeight.w600),),
                                     Text('${data[index].amount}'),
                                   ],
                                 ),
@@ -76,7 +78,7 @@ class OrderHistory extends ConsumerWidget {
               );
             },
             error: (err, stack) => Center(child: Text('$err')),
-            loading: () => Center(child: CircularProgressIndicator())
+            loading: () => const Center(child: CircularProgressIndicator())
         )
     );
   }
