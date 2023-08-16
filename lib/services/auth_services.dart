@@ -28,6 +28,7 @@ class AuthService {
   }
 
 
+
   static Future<Either<String, User>> userLogin({required String email,required String password}) async {
     try {
 
